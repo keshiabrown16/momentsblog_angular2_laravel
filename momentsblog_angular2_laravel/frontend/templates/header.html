@@ -1,0 +1,26 @@
+<div class="container no-padding">
+    <div class="m-logo">
+        <a routerLink="/">
+            Moments
+        </a>
+    </div>
+
+    <div class="nav-trigger">
+        <div id="nav-toggle" (click)="isClass1Visible = !isClass1Visible; isClass2Visible = !isClass2Visible; isClass3Visible = !isClass3Visible; isClass4Visible = !isClass4Visible; isClass5Visible = !isClass5Visible;" [ngClass]="{'active span': isClass1Visible, 'active span:before': isClass2Visible, 'active span:after': isClass3Visible}"><span></span></div>
+    </div>
+
+    <nav class="m-nav" role="navigation" [ngClass]="{'m-nav-sm': isClass4Visible}">
+        <ul class="m-top-nav">
+            <li class="sgn-user">
+                <!--<a *ngIf="authService.loggedIn()" routerLink="/">Home</a>-->
+                <a *ngIf="!authService.loggedIn()" routerLink="/login" routerLinkActive="nav-active">Sign In</a>
+                <a *ngIf="!authService.loggedIn()" routerLink="/register" routerLinkActive="nav-active">Sign Up</a>
+                <a *ngIf="authService.loggedIn()" routerLink="/profile" routerLinkActive="nav-active">Profile</a>
+                <a *ngIf="authService.loggedIn()" routerLink="/post-new" routerLinkActive="nav-active">New Moment</a>
+                <a *ngIf="authService.loggedIn()" routerLink="/posts" routerLinkActive="nav-active">Posts</a>
+                <a *ngIf="!authService.loggedIn()" routerLink="/blog" routerLinkActive="nav-active">Blog</a>
+                <a *ngIf="authService.loggedIn()" (click)="userService.logout()">Sign Out</a>
+            </li>
+        </ul>
+    </nav>
+</div> 

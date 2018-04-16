@@ -1,0 +1,56 @@
+<section class="single_post" *ngIf="post">
+
+<div class="s_post_body module module-text col-md-6 col-md-push-6 no-padding">
+	
+
+	<img [src]="post.img_path" style="margin: 0 0 1em 0;">
+
+	<h1 style="font-size: 1.5em !important; margin: 0 0 0.8rem;">{{post?.post_title}}</h1>
+
+	<h2 style="font-size: 1em !important; text-align: left; margin: 0 0 1rem;">{{post?.post_excerpt}}</h2>
+
+	<h2 style="font-size: 0.8rem !important;text-align: left;font-weight: 500;margin: 0 0 1rem 0;">Published On {{post?.created_at}}</h2>
+	
+	<p>
+		{{post?.post_content}}
+	</p>
+
+</div>
+
+<div class="edit-view s_post_hero splash col-md-6 col-md-pull-6 no-padding">
+	<div class="col-sm-8 post_header module module-text deadCenter">
+		<h2 style="font-size: 1.2rem !important;">Update Or Delete Your Moment</h2>
+
+	    <form style="margin: 1em 0 0 0;" #f="ngForm">
+	        <div class="col-sm-12 col-md-10 col-md-offset-1">
+	            <div class="col-sm-6 no-padding">
+	                <input [(ngModel)]="post.post_title" style="margin: 0 0 1em 0;" type="text" id="post_title" name="post_title" placeholder="Moment Title"/>
+	            </div>
+
+	            <div class="col-sm-5 col-sm-offset-1 no-padding">
+	                <input [(ngModel)]="post.post_excerpt" style="margin: 0 0 1em 0;" type="text" id="post_excerpt" placeholder="Moment Excerpt" name="post_excerpt" />
+	            </div>
+
+	            <div class="col-sm-12 no-padding">
+	                <textarea style="width:100%;height: 160px; margin: 0 0 1em 0;" [(ngModel)]="post.post_content"id="post_content" name="post_content" placeholder="Moment Body">
+	                    
+	                </textarea>
+	            </div>
+
+	            <div class="col-sm-12 no-padding">
+	                <input [(ngModel)]="post.img_path" type="text" id="img_path" placeholder="Image Url" name="img_path" />
+	            </div>   
+	                     
+				<div class="col-sm-12 no-padding" style="margin: 2em 0 0 0;">
+
+			        <button type="submit"class="btn btn-save btn-seaweed" *ngIf="post.id" (click)="onUpdatePost()" style="float: left; margin: 0 1em 0 0;">Update</button>
+
+			        <button class="btn btn-save btn-cadet" (click)="onDeletePost()" style="float: left; margin: 0 1em 0 0;">Delete</button>
+
+				</div>
+	        </div>
+	    </form>			
+	</div>
+</div>
+
+</section>

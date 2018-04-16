@@ -1,0 +1,12 @@
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class AuthService {
+
+  loggedIn() {
+    if (localStorage.getItem("accessToken")) {
+      return true;               
+    }
+  }
+
+}

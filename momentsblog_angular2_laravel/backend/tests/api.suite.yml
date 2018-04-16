@@ -1,0 +1,10 @@
+class_name: ApiTester
+modules:
+    enabled:
+        - REST:
+            url: http://mi-linux.wlv.ac.uk/~0714089/moments/api
+            depends: PhpBrowser
+        - \Helper\Api
+    config:
+        - Laravel5:
+            environment_file: .env.testing

@@ -1,0 +1,25 @@
+<section class="single_post" *ngIf="post">
+
+<div class="s_post_hero splash" [ngStyle]="{'background-image': 'url(' + post.img_path + ')'}">
+	<div class="module-colour">
+		<div class="col-sm-8 post_header module module-text deadCenter">
+			<h1>{{post?.post_title}}</h1>
+
+				<h2>{{post?.post_excerpt}}</h2>
+		</div>
+	</div>
+</div>
+
+
+<div class="s_post_body module module-text">
+	<p style="font-weight: 500;">Published By {{user}}, on {{post?.created_at}}</p>
+	
+	<p>
+		{{post?.post_content}}
+	</p>
+
+
+</div>
+
+
+</section>

@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="module-title col-sm-12">
+		<h1>{{ user.name }}'s Moments</h1>
+	</div>
+	<div class="module module-posts col-sm-12">
+		<div *ngFor="let blogPost of blogPosts" class="col-xs-12 col-sm-6 col-md-4 tp_list">
+			<div class="tp_holder">
+				<a routerLink="/post/{{blogPost.id}}" >
+					<div class="tp_img splash" [ngStyle]="{'background-image': 'url(' + blogPost.img_path + ')'}">			
+					</div>
+				</a>
+			</div>
+				<div class="tp_title">
+					<a routerLink="/post/{{blogPost.id}}" >
+						<h1> {{blogPost.post_title}} </h1>
+					</a>
+				</div>
+
+				<div class="tp_excerpt">
+					<p>{{blogPost.post_excerpt}}</p>
+				</div>
+
+		</div>
+	</div>
+</div>

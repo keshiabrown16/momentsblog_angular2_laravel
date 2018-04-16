@@ -1,0 +1,38 @@
+<section class="new_post col-md-12">
+
+<div class="container">
+
+    <div class="module-title col-md-8 col-md-offset-2">
+        <h1 style="margin: 1em 0 2em 0;">Create A New Moment</h1>
+    </div>
+
+    <form  #f="ngForm" (ngSubmit)="onSubmit()">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="col-sm-6 no-padding">
+                <input [(ngModel)]="post.post_title" style="margin: 0 0 2em 0;" type="text" id="post_title" name="post_title" placeholder="Moment Title"/>
+            </div>
+
+            <div class="col-sm-5 col-sm-offset-1 no-padding">
+                <input [(ngModel)]="post.post_excerpt" type="text" id="post_excerpt" placeholder="Moment Excerpt" name="post_excerpt" />
+            </div>
+
+            <div class="col-sm-12 no-padding">
+                <textarea [(ngModel)]="post.post_content"id="post_content" name="post_content" placeholder="Moment Body">
+                    
+                </textarea>
+            </div>
+
+            <div class="col-sm-8 no-padding">
+                <input [(ngModel)]="post.img_path" type="text" id="img_path" placeholder="Image Url" name="img_path" />
+            </div>   
+                     
+            <div class="col-sm-12 no-padding">
+                <div class="col-sm-4 no-padding">
+                    <button type="submit"class="btn btn-save btn-sunset" *ngIf="!post.id">Publish</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+</section>

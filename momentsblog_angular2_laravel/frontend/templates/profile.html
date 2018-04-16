@@ -1,0 +1,113 @@
+<div class="container">
+	<div class="col-sm-12 no-padding main-content">
+		<div class="col-sm-12 module-block module-dash-welc">
+			<div class="col-sm-6 no-padding">
+				<h1 class="p_title">Dashboard</h1>
+				<p>
+					Welcome to your Moments Dashboard.<br />
+					Update your details, start a new post or view your most recent activity below. 
+
+				</p>
+					<button class="btn btn-sunset">
+						<a routerLink="/post-new" style="font-size: 14px;">
+							New Post
+						</a>
+					</button>
+			</div>
+
+			<div class="col-sm-6 module-stats">
+				<div class="col-sm-12 no-padding" style="position: relative;">
+					<h1 class="p_title">User Information</h1>
+					<i *ngIf="!isVisible" class="fa fa-pencil-square-o" (click)="onShow()"></i>
+					<i *ngIf="isVisible" class="fa fa-close" (click)="onHide()"></i>
+				</div>
+				<div class="col-sm-12 no-padding">
+						<p>Name:<span> {{user.name}}</span></p>
+						<!--<input [(ngModel)]="user.name" placeholder="name">-->
+				</div>
+
+				<div class="col-sm-12 no-padding">
+					<p>Email:<span> {{user.email}}</span></p>
+				</div>
+
+				<div class="col-sm-12 no-padding">
+						<p>Member Since: {{user.created_at.date}}</p>
+				</div>
+
+				<form *ngIf="isVisible" #f="ngForm" (ngSubmit)="onUpdateUser()"class="update-details form-horizontal" role="form">
+					<input [(ngModel)]="user.name" placeholder="name" id="name" type="text" class="form-control" name="name" style="margin: 0 0 1em 0;">
+
+					<input [(ngModel)]="user.email" placeholder="email" id="email" type="email" class="form-control" name="email" style="margin: 0 0 1em 0;">
+
+					<button type="submit" class="btn btn-sunset">Update</button>
+					<button type="submit" class="btn btn-cadet" (click)="onDeleteUser()">Delete Account</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="col-sm-12 col-md-6 module-block">
+			<h2 class="p_subtitle no-padding">Recently Published</h2>
+				<div class="col-sm-12 no-padding mod-hold" *ngFor="let blogPost of blogPosts">
+					<a class="recent_hold" routerLink="/post/{{blogPost.id}}">
+						<div class="col-xs-6 col-sm-6 mod_title no-padding">
+							<p>{{blogPost.post_title}}</p>
+						</div>
+
+					<div class="col-xs-6 col-sm-6 mod_date no-padding">
+						<p>{{blogPost.created_at}}</p>
+					</div>
+					</a>
+				</div>
+		</div>
+		
+		<div class="col-xs-0 col-sm-0 col-md-1"></div>
+
+		<div class="col-sm-12 col-md-5 module-block">
+			<h2 class="p_subtitle no-padding">Recent Comments</h2>
+				<div class="col-sm-12 no-padding mod-hold-coms">
+					<div class="col-xs-3 col-sm-3 mod-avatar no-padding">
+						<img src="http://1.gravatar.com/avatar/4ec040642ea90998e5ebb83de1252df1?s=100&d=mm&r=g 2x">
+					</div>
+
+					<div class="col-xs-9 col-sm-9 mod_text no-padding">
+						<p>
+							<span class="sender_details">
+								<p>From: John Doe. On: Angular 2 &amp; Laravel</p>
+							</span>
+							At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.
+						</p>
+					</div>
+				</div>
+
+				<div class="col-sm-12 no-padding mod-hold-coms">
+					<div class="col-xs-3 col-sm-3 mod-avatar no-padding">
+						<img src="http://1.gravatar.com/avatar/4ec040642ea90998e5ebb83de1252df1?s=100&d=mm&r=g 2x">
+					</div>
+
+					<div class="col-xs-9 col-sm-9 mod_text no-padding">
+						<p>
+							<span class="sender_details">
+								<p>From: John Doe. On: Angular 2 &amp; Laravel</p>
+							</span>
+							At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.
+						</p>
+					</div>
+				</div>
+
+				<div class="col-sm-12 no-padding mod-hold-coms">
+					<div class="col-xs-3 col-sm-3 mod-avatar no-padding">
+						<img src="http://1.gravatar.com/avatar/4ec040642ea90998e5ebb83de1252df1?s=100&d=mm&r=g 2x">
+					</div>
+
+					<div class="col-xs-9 col-sm-9 mod_text no-padding">
+						<p>
+							<span class="sender_details">
+								<p>From: John Doe. On: Angular 2 &amp; Laravel</p>
+							</span>
+							At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.
+						</p>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>
